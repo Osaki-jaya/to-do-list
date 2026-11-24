@@ -193,4 +193,5 @@ Aplikasi ini siap di-deploy secara instan dan gratis ke Vercel:
 | `activity_log` | Authenticated | Authenticated | *Disabled* | **Admin Saja** |
 #   t o - d o - l i s t  
  #   t o - d o - l i s t  
+ #   t o - d o - l i s t  
  
