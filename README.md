@@ -192,4 +192,5 @@ Aplikasi ini siap di-deploy secara instan dan gratis ke Vercel:
 | `profiles` | Authenticated | Trigger / Authenticated | Milik Sendiri atau Admin | **Admin Saja (`is_admin()`)** |
 | `activity_log` | Authenticated | Authenticated | *Disabled* | **Admin Saja** |
 #   t o - d o - l i s t  
+ #   t o - d o - l i s t  
  
