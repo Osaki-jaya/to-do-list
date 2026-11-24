@@ -1,0 +1,21 @@
+name: Keep Supabase Active
+
+on:
+  schedule:
+    # Berjalan otomatis setiap 3 hari sekali pada jam 00:00 UTC
+    # Menjaga database Supabase tetap aktif dan tidak pernah pause/sleep karena inaktivitas
+    - cron: '0 0 */3 * *'
+  workflow_dispatch: # Memungkinkan dijalankan manual dari tab Actions di GitHub
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase Database API
+        run: |
+          echo "Pinging Supabase to keep project alive..."
+          curl -s -o /dev/null -w "%{http_code}" \
+            -H "apikey: sb_publishable_y_XRqQpgk0LHplgv2vaUcQ_ibnZqAi3" \
+            -H "Authorization: Bearer sb_publishable_y_XRqQpgk0LHplgv2vaUcQ_ibnZqAi3" \
+            "https://oxhxhekfcdyxqvtryggm.supabase.co/rest/v1/events?select=id&limit=1"
+          echo "Berhasil! Supabase tetap aktif."
