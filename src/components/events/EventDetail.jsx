@@ -226,20 +226,21 @@ export default function EventDetail({
       {/* NAVIGASI PEMISAH: FILE/DESAIN vs LOGISTIK/BIAYA                           */}
       {/* ========================================================================= */}
       <div className="bg-gradient-to-r from-slate-900 to-indigo-950 p-1.5 rounded-2xl shadow-md flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2">
-        <div className="flex items-center gap-1 bg-white/10 p-1 rounded-xl">
+        <div className="flex items-center gap-1 bg-white/10 p-1 rounded-xl overflow-x-auto scrollbar-none">
           {/* Tab 1: Pusat File & Desain */}
           <button
             type="button"
             onClick={() => setViewMode('files')}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap shrink-0 ${
               viewMode === 'files'
                 ? 'bg-purple-600 text-white shadow-md shadow-purple-900/40'
                 : 'text-indigo-200 hover:text-white hover:bg-white/10'
             }`}
           >
-            <Palette className="w-4 h-4 text-purple-300" />
-            <span>Pusat File & Desain Garapan</span>
-            <span className="ml-1 text-[11px] px-2 py-0.2 rounded-full bg-purple-800 text-purple-100">
+            <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-300" />
+            <span className="hidden sm:inline">Pusat File & Desain Garapan</span>
+            <span className="sm:hidden">File & Desain</span>
+            <span className="ml-1 text-[10px] sm:text-[11px] px-1.5 py-0.2 rounded-full bg-purple-800 text-purple-100">
               {fileItems.length}
             </span>
           </button>
@@ -248,15 +249,16 @@ export default function EventDetail({
           <button
             type="button"
             onClick={() => setViewMode('budget')}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap shrink-0 ${
               viewMode === 'budget'
                 ? 'bg-emerald-600 text-white shadow-md shadow-emerald-900/40'
                 : 'text-indigo-200 hover:text-white hover:bg-white/10'
             }`}
           >
-            <Package className="w-4 h-4 text-emerald-300" />
-            <span>Logistik & Anggaran Biaya</span>
-            <span className="ml-1 text-[11px] px-2 py-0.2 rounded-full bg-emerald-800 text-emerald-100">
+            <Package className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-300" />
+            <span className="hidden sm:inline">Logistik & Anggaran Biaya</span>
+            <span className="sm:hidden">Logistik & Biaya</span>
+            <span className="ml-1 text-[10px] sm:text-[11px] px-1.5 py-0.2 rounded-full bg-emerald-800 text-emerald-100">
               {budgetItems.length}
             </span>
           </button>
@@ -265,13 +267,13 @@ export default function EventDetail({
           <button
             type="button"
             onClick={() => setViewMode('all')}
-            className={`hidden md:flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap shrink-0 ${
               viewMode === 'all'
                 ? 'bg-white text-slate-900 shadow-sm'
                 : 'text-indigo-200 hover:text-white hover:bg-white/10'
             }`}
           >
-            <Layers className="w-4 h-4 text-indigo-400" />
+            <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-400" />
             <span>Semua ({totalCount})</span>
           </button>
         </div>
@@ -279,7 +281,7 @@ export default function EventDetail({
         {/* Quick Add Button Sesuai Tab Aktif */}
         <button
           onClick={() => onAddItem(activeCategoryId !== 'all' ? activeCategoryId : (eventCategories[0]?.id || ''))}
-          className={`px-4 py-2 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-md ${
+          className={`px-4 py-2 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-md shrink-0 ${
             viewMode === 'files'
               ? 'bg-purple-500 hover:bg-purple-400 text-white'
               : 'bg-emerald-500 hover:bg-emerald-400 text-white'
@@ -287,10 +289,10 @@ export default function EventDetail({
         >
           <Plus className="w-4 h-4" />
           {viewMode === 'files'
-            ? '+ Upload / Catat File Desain'
+            ? '+ File / Desain Baru'
             : viewMode === 'budget'
-            ? '+ Tambah Belanja / Logistik'
-            : '+ Tambah Item'}
+            ? '+ Belanja / Alat Baru'
+            : '+ Tambah Item Baru'}
         </button>
       </div>
 
